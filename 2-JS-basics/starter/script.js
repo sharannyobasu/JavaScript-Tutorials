@@ -197,7 +197,7 @@ console.log(x1('teacher', 'Sara'));
 console.log(x1('farmer', 'Rajesh'));
 console.log(x1('teacher', 'Sara'));
 console.log(x1('footballer', 'Leo'));
-*/
+
 
 var names = [23, 34, 45, 56, 67];
 console.log(names[3]);
@@ -206,7 +206,9 @@ console.log(arr[2]);
 arr.push('blue');
 console.log(arr.indexOf('Jane1'));
 console.log(arr);
+*/
 
+/*CODING CHALLENGE 3
 var arr = [124, 48, 268];
 var tip = [];
 var total = [];
@@ -229,3 +231,94 @@ tips(arr[1]);
 tips(arr[2]);
 console.log(tip);
 console.log(total);
+*/
+/* OBJECTS AND METHODS
+var john = {
+  firstname: 'John',
+  lastname: 'Smith',
+  age: 25,
+  college: 'CU',
+  job: 'Student',
+  married: false,
+  calcage: function () {
+    this.birthyear = 2020 - this.age;
+  },
+};
+
+console.log(john.firstname);
+console.log(john['age']);
+var x = 'job';
+console.log(john[x]);
+john.job = 'Designer';
+console.log(john[x]);
+/*console.log(john['job'] + ' peeps');
+console.log(john.firstname);
+console.log(john.x);
+john.calcage();
+console.log(john.birthyear);
+
+
+var jane = new Object();
+jane.firstname = 'Sharannyo';
+jane.lastname = 'Basu';
+jane.birthyear = 1999;
+jane.married = false;
+jane.age = 2020 - this.birthyear;
+console.log(jane);
+console.log(jane.age);
+*/
+
+/* CODING CHALLENGE 4
+var johnny = {
+  firstname: 'Johnny',
+  lastname: 'Bhai',
+  mass: 110,
+  heigth: 1.95,
+  calcbmi: function () {
+    this.bmi = this.mass / (this.heigth * this.heigth);
+  },
+};
+
+var mike = {
+  firstname: 'Mike',
+  lastname: 'Hussey',
+  mass: 78,
+  heigth: 1.69,
+  calcbmi: function () {
+    this.bmi = this.mass / (this.heigth * this.heigth);
+  },
+};
+
+johnny.calcbmi();
+mike.calcbmi();
+johnny.bmi > mike.bmi
+  ? console.log(johnny.firstname + ' ' + johnny.lastname + ' : ' + johnny.bmi)
+  : console.log(mike.firstname + ' ' + mike.lastname + ' : ' + mike.bmi);
+
+  */
+
+/* CODING CHALLENGE 5
+var obj = {
+  arr: [124, 48, 268, 180, 42],
+  tip: [],
+  total: [],
+  calctips: function () {
+    for (i = 0; i < this.arr.length; i++) {
+      if (this.arr[i] < 50) {
+        this.tip.push(0.2 * this.arr[i]);
+        this.total.push(1.2 * this.arr[i]);
+      } else if (this.arr[i] >= 50 && this.arr[i] < 250) {
+        this.tip.push(0.15 * this.arr[i]);
+        this.total.push(1.15 * this.arr[i]);
+      } else {
+        this.tip.push(0.1 * this.arr[i]);
+        this.total.push(1.1 * this.arr[i]);
+      }
+    }
+  },
+};
+
+obj.calctips();
+console.log(obj.tip);
+console.log(obj.total);
+*/
