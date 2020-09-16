@@ -159,3 +159,42 @@ if (john > mike && john > mary) {
   console.log('Mary was the best with ' + mary);
 }
 */
+/*Functions
+function age(birthyear) {
+  return 2020 - birthyear;
+}
+console.log(age(2001));
+
+function retire(a, b) {
+  if (a > 65) {
+    console.log(b + ' is already retired !!');
+  } else {
+    duration = 65 - a;
+    console.log(b + ' is going to retire in ' + duration + ' years');
+  }
+}
+
+retire(43, 'Sudip');
+retire(20, 'Sharannyo');
+retire(21, 'Arindam');
+retire(69, 'Karl');
+*/
+/*function expression
+var x1 = function (job, firstname) {
+  switch (job) {
+    case 'teacher':
+      return firstname + ' teaches kids';
+    case 'driver':
+      return firstname + ' drives people around !';
+    case 'farmer':
+      return firstname + ' ploughs the field !';
+    default:
+      return 'Something else';
+  }
+};
+
+console.log(x1('teacher', 'Sara'));
+console.log(x1('farmer', 'Rajesh'));
+console.log(x1('teacher', 'Sara'));
+console.log(x1('footballer', 'Leo'));
+*/
