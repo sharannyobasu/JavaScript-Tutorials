@@ -198,3 +198,34 @@ console.log(x1('farmer', 'Rajesh'));
 console.log(x1('teacher', 'Sara'));
 console.log(x1('footballer', 'Leo'));
 */
+
+var names = [23, 34, 45, 56, 67];
+console.log(names[3]);
+var arr = [12, 23, 'Jane', 43, 'Forty'];
+console.log(arr[2]);
+arr.push('blue');
+console.log(arr.indexOf('Jane1'));
+console.log(arr);
+
+var arr = [124, 48, 268];
+var tip = [];
+var total = [];
+
+function tips(val) {
+  if (val < 50) {
+    tip.push(0.2 * val);
+    total.push(1.2 * val);
+  } else if (val >= 50 && val < 250) {
+    tip.push(0.15 * val);
+    total.push(1.15 * val);
+  } else {
+    tip.push(0.1 * val);
+    total.push(1.1 * val);
+  }
+}
+
+tips(arr[0]);
+tips(arr[1]);
+tips(arr[2]);
+console.log(tip);
+console.log(total);
