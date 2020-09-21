@@ -54,3 +54,39 @@ function third() {
 
 ///////////////////////////////////////
 // Lecture: The this keyword
+
+/*
+var c = 23;
+function callus() {
+  var c = 46;
+  this.c++;
+  console.log(this.c);
+}
+callus();
+console.log(c);
+*/
+
+console.log(this);
+
+var obj = {
+  a: 45,
+  b: 46,
+  c: 47,
+  d: 48,
+  num: function () {
+    console.log(this);
+    function inner1() {
+      console.log(this);
+    }
+    inner1();
+  },
+};
+obj.num();
+
+var a = function () {
+  console.log('Yes');
+};
+var b = a;
+b();
+b();
+console.log(b);
