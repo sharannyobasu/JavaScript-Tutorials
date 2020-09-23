@@ -8,11 +8,56 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
-var scores, roundScore;
+var scores, roundScore, activeplayer;
 scores = [0, 0];
 roundScore = 0;
-activeplayer = 0;
+activeplayer = 1;
 
-dice = Math.floor(Math.random() * 6) + 1;
+//document.querySelector('#current-' + activeplayer).textContent = dice;
+//document.querySelector('#current-' + activeplayer).innerHTML =
+//'<em>' + dice + '</em>';
 
-document.querySelector('#score-0').textContent = dice;
+//var x = document.querySelector('#score-0').textContent;
+//console.log(x);
+
+document.querySelector('.dice').style.display = 'none';
+
+document.getElementById('score-0').textContent = '0';
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
+
+document
+  .querySelector('.btn-roll')
+  .addEventListener(
+    'click',
+    function () //here addEventListener is a function which will call the function whenever click event happens
+    {
+      //1. Random number generate
+      var dice = Math.floor(Math.random() * 6) + 1;
+
+      //Display the result
+      var diceDOM = document.querySelector('.dice');
+      diceDOM.style.display = 'block';
+      diceDOM.src = 'dice-' + dice + '.png';
+
+      //Update the round score if rolled is not a 1
+      if (dice != 1) {
+        document.querySelector('.ass').style.display = 'none';
+        roundScore += dice;
+        document.querySelector(
+          '#current-' + activeplayer
+        ).textContent = roundScore;
+      } else {
+        activeplayer === 0 ? (activeplayer = 1) : (activeplayer = 0);
+        roundScore = 0;
+        document.getElementById('current-0').textContent = '0';
+        document.getElementById('current-1').textContent = '0';
+        document.querySelector('.player-0-panel').classList.toggle('active');
+        document.querySelector('.player-1-panel').classList.toggle('active');
+        document.querySelector('.dice').style.display = 'none';
+
+        document.querySelector('.ass').style.display = 'block';
+      }
+    }
+  );
