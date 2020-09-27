@@ -163,13 +163,6 @@ i {
   height: 100px;
   box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.2);
 }
-.ass {
-  top: 205px;
-  display: none;
-  font-weight: 600;
-  color: #eb4d4d;
-  line-height: 30px;
-}
 
 .winner {
   background-color: #f7f7f7;

@@ -9,23 +9,13 @@ GAME RULES:
 
 */
 var scores, roundScore, activeplayer;
-scores = [0, 0];
-roundScore = 0;
-activeplayer = 1;
-
+init();
 //document.querySelector('#current-' + activeplayer).textContent = dice;
 //document.querySelector('#current-' + activeplayer).innerHTML =
 //'<em>' + dice + '</em>';
 
 //var x = document.querySelector('#score-0').textContent;
 //console.log(x);
-
-document.querySelector('.dice').style.display = 'none';
-
-document.getElementById('score-0').textContent = '0';
-document.getElementById('score-1').textContent = '0';
-document.getElementById('current-0').textContent = '0';
-document.getElementById('current-1').textContent = '0';
 
 document
   .querySelector('.btn-roll')
@@ -43,21 +33,65 @@ document
 
       //Update the round score if rolled is not a 1
       if (dice != 1) {
-        document.querySelector('.ass').style.display = 'none';
         roundScore += dice;
         document.querySelector(
           '#current-' + activeplayer
         ).textContent = roundScore;
       } else {
-        activeplayer === 0 ? (activeplayer = 1) : (activeplayer = 0);
-        roundScore = 0;
-        document.getElementById('current-0').textContent = '0';
-        document.getElementById('current-1').textContent = '0';
-        document.querySelector('.player-0-panel').classList.toggle('active');
-        document.querySelector('.player-1-panel').classList.toggle('active');
-        document.querySelector('.dice').style.display = 'none';
-
-        document.querySelector('.ass').style.display = 'block';
+        nextPlayer();
       }
     }
   );
+
+document.querySelector('.btn-hold').addEventListener('click', function () {
+  //add current score to global score
+  scores[activeplayer] += roundScore;
+  //check if player has won
+  if (scores[activeplayer] >= 20) {
+    document.querySelector('#name-' + activeplayer).textContent = 'WINNER !';
+    document.querySelector('#score-' + activeplayer).textContent =
+      scores[activeplayer];
+    document.querySelector('.dice').style.display = 'None';
+    document
+      .querySelector('.player-' + activeplayer + '-panel')
+      .classList.add('winner');
+    document
+      .querySelector('.player-' + activeplayer + '-panel')
+      .classList.remove('active');
+  } else {
+    nextPlayer();
+  }
+  //update the UI
+});
+
+function nextPlayer() {
+  document.querySelector('#score-' + activeplayer).textContent =
+    scores[activeplayer];
+  activeplayer === 0 ? (activeplayer = 1) : (activeplayer = 0);
+  roundScore = 0;
+  document.getElementById('current-0').textContent = '0';
+  document.getElementById('current-1').textContent = '0';
+  document.querySelector('.player-0-panel').classList.toggle('active');
+  document.querySelector('.player-1-panel').classList.toggle('active');
+  document.querySelector('.dice').style.display = 'none';
+}
+document.querySelector('.btn-new').addEventListener('click', init);
+function init() {
+  scores = [0, 0];
+  activeplayer = 0;
+  roundScore = 0;
+  document.querySelector('.dice').style.display = 'none';
+
+  document.getElementById('score-0').textContent = '0';
+  document.getElementById('score-1').textContent = '0';
+  document.getElementById('current-0').textContent = '0';
+  document.getElementById('current-1').textContent = '0';
+  document.getElementById('name-0').textContent = 'Player 1';
+  document.getElementById('name-1').textContent = 'Player 2';
+
+  document.querySelector('.player-0-panel').classList.remove('winner');
+  document.querySelector('.player-1-panel').classList.remove('winner');
+  document.querySelector('.player-0-panel').classList.remove('active');
+  document.querySelector('.player-1-panel').classList.remove('active');
+  document.querySelector('.player-0-panel').classList.add('active');
+}
