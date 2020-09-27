@@ -73,9 +73,10 @@ body {
 
 .active {
   background-color: #f7f7f7;
+  font-weight: 300;
 }
 .active .player-name {
-  font-weight: 300;
+  font-weight: 600;
 }
 
 .active .player-name::after {
@@ -168,6 +169,6 @@ i {
   background-color: #f7f7f7;
 }
 .winner .player-name {
-  font-weight: 300;
+  font-weight: 600;
   color: #eb4d4d;
 }
