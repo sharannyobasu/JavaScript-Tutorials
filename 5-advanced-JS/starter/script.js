@@ -87,7 +87,7 @@ console.log(obj.city);
 
 */
 
-//Functions passed as arguments
+/*Functions passed as arguments
 
 var years = [1990, 1965, 1937, 2005, 1998];
 function arraycalc(arr, fn) {
@@ -109,3 +109,41 @@ function isfullage(el) {
 }
 var fullages = arraycalc(ages, isfullage);
 console.log(fullages);
+
+*/
+
+/* FIRST CLASS FUNCTIONS
+
+function interview(job) {
+  if (job === 'designer') {
+    return function (name) {
+      console.log(name + ', explain UX design');
+    };
+  }
+  if (job === 'teacher') {
+    return function (name) {
+      console.log(name + ', what subject do you teach?');
+    };
+  } else
+    return function (name) {
+      console.log(name + ', what do you do?');
+    };
+}
+
+var teacherquestion = interview('teacher');
+teacherquestion('John');
+
+var designerquestion = interview('designer');
+designerquestion('Sandra');
+designerquestion('Sophia');
+designerquestion('Alex');
+designerquestion('Bobby');
+designerquestion('Rhonda');
+designerquestion('Jimmy');
+
+var nothing = interview('mason');
+nothing('Sameer');
+
+interview('desiner')('Raju');
+
+*/
