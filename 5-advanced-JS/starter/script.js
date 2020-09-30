@@ -147,3 +147,27 @@ nothing('Sameer');
 interview('desiner')('Raju');
 
 */
+
+/* Invoked Function Expressions
+
+function game() {
+  var score = Math.floor(Math.random() * 10);
+  if (score > 5) {
+    console.log('You win !! ' + score);
+  } else {
+    console.log('You lose !! ' + score);
+  }
+}
+
+game();
+
+(function () {
+  var score = Math.floor(Math.random() * 10);
+  if (score > 5) {
+    console.log('You win !! ' + score);
+  } else {
+    console.log('You lose !! ' + score);
+  }
+})();
+
+*/
