@@ -171,3 +171,43 @@ game();
 })();
 
 */
+
+/* CLOSURES IN JS
+
+function retirement(retirementage) {
+  var a = ' years left to retire';
+  return function (yearofbirth) {
+    var age = 2016 - yearofbirth;
+    console.log(retirementage - age + a);
+  };
+}
+
+var retirementUS = retirement(66);
+retirementUS(1990);
+
+var retirementGermany = retirement(65);
+retirementGermany(2000);
+
+var retirementIndia = retirement(60);
+retirementIndia(2000);
+
+retirement(60)(1980);
+
+function interviewclosure(job) {
+  return function (name) {
+    console.log(name + ' is a ' + job);
+  };
+}
+
+var interviewteacher = interviewclosure('teacher');
+interviewteacher('Sandro');
+
+var interviewplumber = interviewclosure('plumber');
+interviewplumber('John');
+
+var interviewmanager = interviewclosure('manager');
+interviewmanager('Suman');
+
+interviewclosure('builder')('Bob');
+
+*/
