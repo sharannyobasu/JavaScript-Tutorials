@@ -211,3 +211,141 @@ interviewmanager('Suman');
 interviewclosure('builder')('Bob');
 
 */
+
+/* CALL() Function in JS
+
+var john = {
+  name: 'John',
+  age: 26,
+  job: 'teacher',
+  presentation: function (style, timeofday) {
+    if (style === 'formal') {
+      console.log(
+        'Good ' +
+          timeofday +
+          ', Ladies and gentlemen. I am ' +
+          this.name +
+          '. I am a ' +
+          this.job +
+          ' and I am ' +
+          this.age +
+          ' years old.'
+      );
+    } else if (style === 'friendly') {
+      console.log(
+        "Hey what's up? Good " +
+          timeofday +
+          ', I am ' +
+          this.name +
+          '. I am a ' +
+          this.job +
+          ' and I am ' +
+          this.age +
+          ' years old !'
+      );
+    }
+  },
+};
+
+var emily = {
+  name: 'Emily',
+  age: 35,
+  job: 'Designer',
+};
+
+john.presentation('formal', 'morning');
+john.presentation('friendly', 'evening');
+
+john.presentation.call(emily, 'friendly', 'morning');
+
+var person = {
+  fullname: function () {
+    console.log(this.name);
+  },
+};
+
+var person1 = {
+  name: 'Lucas Moura',
+};
+
+var person2 = {
+  name: 'Roberto Soldado',
+};
+
+person.fullname.call(person1);
+person.fullname.call(person2);
+
+*/
+
+/* Bind, Call Apply
+var person = {
+  fullname: function () {
+    console.log(this.firstname + ' ' + this.lastname);
+  },
+};
+
+var person1 = {
+  firstname: 'Lucas',
+  lastname: 'Moura',
+};
+
+var person2 = {
+  firstname: 'Roberto',
+  lastname: 'Soldado',
+};
+
+person.fullname.call(person1);
+person.fullname.call(person2);
+
+var john = {
+  name: 'John',
+  age: 26,
+  job: 'teacher',
+  presentation: function (style, timeofday) {
+    if (style === 'formal') {
+      console.log(
+        'Good ' +
+          timeofday +
+          ', Ladies and gentlemen. I am ' +
+          this.name +
+          '. I am a ' +
+          this.job +
+          ' and I am ' +
+          this.age +
+          ' years old.'
+      );
+    } else if (style === 'friendly') {
+      console.log(
+        "Hey what's up? Good " +
+          timeofday +
+          ', I am ' +
+          this.name +
+          '. I am a ' +
+          this.job +
+          ' and I am ' +
+          this.age +
+          ' years old !'
+      );
+    }
+  },
+};
+
+var emily = {
+  name: 'Emily',
+  age: 35,
+  job: 'Designer',
+};
+
+var johnfriendly = john.presentation.bind(john, 'friendly');
+
+johnfriendly('dawn');
+johnfriendly('evening');
+johnfriendly('morning');
+johnfriendly('night');
+
+console.log('After this');
+
+var johnmorning = john.presentation.bind(john, 'morning');
+
+johnmorning('formal');
+*/
