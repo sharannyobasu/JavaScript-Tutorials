@@ -349,3 +349,69 @@ var johnmorning = john.presentation.bind(john, 'morning');
 
 johnmorning('formal');
 */
+
+(function () {
+  function questions(question, answers, correct) {
+    this.question = question;
+    this.answers = answers;
+    this.correct = correct;
+  }
+  questions.prototype.displayQuestion = function () {
+    console.log(this.question);
+
+    for (var i = 0; i < this.answers.length; i++) {
+      console.log(i + ' :' + this.answers[i]);
+    }
+  };
+
+  questions.prototype.checkAnswer = function (ans, callback) {
+    var sc;
+    if (ans === this.correct) {
+      console.log('Correct Answer !');
+      sc = callback(true);
+    } else {
+      console.log('Wrong Answer !');
+      sc = callback(false);
+    }
+    this.displayScore(sc);
+  };
+
+  questions.prototype.displayScore = function (score) {
+    console.log('Your current score is : ' + score);
+    console.log('--------------------------------');
+  };
+
+  var q1 = new questions('Is JS the coolest language?', ['Yes', 'No'], 0);
+
+  var q2 = new questions('Sun rises in the east', ['Yes', 'No'], 0);
+
+  var q3 = new questions('Sharannyo is a good boy', ['No', 'Yes'], 1);
+
+  var questionslist = [q1, q2, q3];
+  function score() {
+    var sc = 0;
+    return function (correct) {
+      if (correct) {
+        sc++;
+      }
+      return sc;
+    };
+  }
+  var keepscore = score();
+  function nextQuestion() {
+    var n = Math.floor(Math.random() * questionslist.length);
+    questionslist[n].displayQuestion();
+    var answer = prompt('Please select the correct answer');
+    if (answer == null) {
+      console.log('You quit the quiz.');
+    } else if (answer == '') {
+      console.log('Please enter a valid option');
+      nextQuestion();
+    } else {
+      questionslist[n].checkAnswer(parseInt(answer), keepscore);
+      nextQuestion();
+    }
+  }
+  nextQuestion();
+})();
+1;
